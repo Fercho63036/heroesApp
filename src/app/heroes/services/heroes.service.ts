@@ -26,4 +26,12 @@ export class HeroesService {
     return this.http.get<Hero[]>(`${ this.baseUrl }/heroes?q=${ query }&_limit=6`);
   }
 
+  addHero( hero: Hero ): Observable<Hero> {
+    return this.http.post<Hero>(`${ this.baseUrl }/heroes`, hero);
+  }
+
+  updatehero( hero: Hero ): Observable<Hero> {
+    if ( !hero.id ) throw Error('Hero id is required');
+    return this.http.patch<Hero>(`${ this.baseUrl }/heroes/${ hero.id }`, hero);
+  }
 }
