@@ -30,7 +30,7 @@ export class HeroesService {
     return this.http.post<Hero>(`${ this.baseUrl }/heroes`, hero);
   }
 
-  updatehero( hero: Hero ): Observable<Hero> {
+  updateHero( hero: Hero ): Observable<Hero> {
     if ( !hero.id ) throw Error('Hero id is required');
 
     return this.http.patch<Hero>(`${ this.baseUrl }/heroes/${ hero.id }`, hero);
